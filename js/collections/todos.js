@@ -32,6 +32,11 @@ class TodosCollection extends Collection {
   nextOrder() {
     return this.length ? this.last().get('order') + 1 : 1;
   }
+
+  // Return an array only with the checked services
+  getChecked() {
+    return this.where({selected:true});
+  }
 }
 
 export default new TodosCollection();

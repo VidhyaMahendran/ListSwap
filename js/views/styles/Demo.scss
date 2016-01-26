@@ -1,7 +1,12 @@
 .Demo {
   color: black;
+  margin: 2em 0;
+  background: #CCC;
+  padding:1em;
+  border:1px dashed #999;
 
   &-button {
+    margin: 1em 0;
     border: 1px dotted #000;
     border-radius: 5px;
     cursor: pointer;

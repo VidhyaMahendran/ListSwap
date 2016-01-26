@@ -24,7 +24,7 @@ var Demo = React.createClass({
     return (
       <div className="Demo">
         <button className="Demo-button" onClick={this.toggleReadme}>
-          {this.state.showReadme ? 'Hide React JS View Content' : 'Show React JS View Content'}
+          {this.state.showReadme ? 'Hide React JS View' : 'Show React JS View'}
         </button>
         {readme}
       </div>

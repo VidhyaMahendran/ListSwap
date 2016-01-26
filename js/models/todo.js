@@ -6,7 +6,10 @@ class Todo extends Model {
   defaults() {
     return {
       title: '',
-      completed: false
+      completed: false,
+      servicename: 'Installation',
+      price: '100',
+      selected: true
     };
   }
 
@@ -14,6 +17,12 @@ class Todo extends Model {
   toggle() {
     this.save({
       completed: !this.get('completed')
+    });
+  }
+
+  toggleService() {
+    this.save({
+      selected: !this.get('selected')
     });
   }
 }
