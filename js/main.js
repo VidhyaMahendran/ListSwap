@@ -1,9 +1,5 @@
 import 'es5-shim';
 
-import 'todomvc-common';
-import 'todomvc-common/base.css';
-import 'todomvc-app-css/index.css';
-
 import AppView from 'views/app';
 import Backbone from 'backbone';
 import Demo from 'Demo.jsx';
