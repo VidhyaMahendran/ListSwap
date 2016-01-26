@@ -2,7 +2,7 @@ import React from 'React';
 
 var README = require('readme.md');
 
-require('./styles/app.scss');
+require('./styles/Demo.scss');
 
 var Demo = React.createClass({
   getInitialState() {

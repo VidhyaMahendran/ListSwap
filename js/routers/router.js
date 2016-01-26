@@ -2,25 +2,25 @@
 define([
 	'jquery',
 	'backbone',
-	'collections/lists',
+	'collections/todos',
 	'common'
-], function ($, Backbone, Lists, Common) {
+], function ($, Backbone, Todos, Common) {
 	'use strict';
 
-	var ListRouter = Backbone.Router.extend({
+	var TodoRouter = Backbone.Router.extend({
 		routes: {
 			'*filter': 'setFilter'
 		},
 
 		setFilter: function (param) {
 			// Set the current filter to be used
-			Common.ListFilter = param || '';
+			Common.TodoFilter = param || '';
 
 			// Trigger a collection filter event, causing hiding/unhiding
-			// of the List view items
-			Lists.trigger('filter');
+			// of the Todo view items
+			Todos.trigger('filter');
 		}
 	});
 
-	return ListRouter;
+	return TodoRouter;
 });
