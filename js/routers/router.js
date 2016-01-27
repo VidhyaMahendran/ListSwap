@@ -4,23 +4,23 @@ define([
 	'backbone',
 	'collections/services',
 	'common'
-], function ($, Backbone, Todos, Common) {
+], function ($, Backbone, Services, Common) {
 	'use strict';
 
-	var TodoRouter = Backbone.Router.extend({
+	var ServiceRouter = Backbone.Router.extend({
 		routes: {
 			'*filter': 'setFilter'
 		},
 
 		setFilter: function (param) {
 			// Set the current filter to be used
-			Common.TodoFilter = param || '';
+			Common.ServiceFilter = param || '';
 
 			// Trigger a collection filter event, causing hiding/unhiding
 			// of the Todo view items
-			Todos.trigger('filter');
+			Services.trigger('filter');
 		}
 	});
 
-	return TodoRouter;
+	return ServiceRouter;
 });

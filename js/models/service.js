@@ -1,6 +1,6 @@
 import { Model } from 'backbone';
 
-class Todo extends Model {
+class Service extends Model {
   // Default attributes for the todo
   // and ensure that each todo created has `title` and `completed` keys.
   defaults() {
@@ -26,4 +26,4 @@ class Todo extends Model {
   }
 }
 
-export default Todo;
+export default Service;
