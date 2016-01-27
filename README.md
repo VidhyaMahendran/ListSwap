@@ -1,6 +1,10 @@
 # ListSwap
 A simple App built with Backbone powered with ES2015 (Harmony) compiled with Babel and bundled with Webpack
 
+# Running Instructions
+npm install
+node server.js
+
 # Directory Structure
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /js/                       
