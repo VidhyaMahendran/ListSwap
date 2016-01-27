@@ -8,8 +8,7 @@ class Todo extends Model {
       title: '',
       completed: false,
       servicename: 'Installation',
-      price: '100',
-      selected: true
+      price: '100'
     };
   }
 

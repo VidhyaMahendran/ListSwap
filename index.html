@@ -18,28 +18,18 @@
 				</ul>
 			</div>
 			<div class="content">
-				<section id="serviceSelector">
-					<form id="main" method="post" action="#">
-						<h1>My Services</h1>
-
-						<ul id="services">
-							<!-- The services will be inserted here -->
-						</ul>
-
-						<p id="total">total: <span>$0</span></p>
-
-						<input type="submit" id="order" value="Order" />
-
-					</form>
-				</section>
 				<section id="todoapp">
 					<header id="header">
-						<h1>todos</h1>
-						<input id="new-todo" placeholder="What needs to be done?" autofocus>
+						<h1>Create your service and Select it to Pay</h1>
+						<form id="selectservice" name="selectservice" method="post" action="#">
+							<input id="new-todo" placeholder="What needs to be done?" autofocus />
+							<input id="service" placeholder="Service" />
+							<input id="charge" placeholder="Service Charge" />
+						</form>
 					</header>
 					<section id="main">
 						<input id="toggle-all" type="checkbox">
-						<label for="toggle-all">Mark all as complete</label>
+						<label for="toggle-all">Select All Services</label>
 						<ul id="todo-list"></ul>
 					</section>
 					<footer id="footer"></footer>

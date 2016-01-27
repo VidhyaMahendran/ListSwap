@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/todos.html',
+	'text!templates/services.html',
 	'common'
 ], function ($, _, Backbone, todosTemplate, Common) {
 	'use strict';
@@ -107,6 +107,11 @@ define([
 		// Remove the item, destroy the model from *localStorage* and delete its view.
 		clear: function () {
 			this.model.destroy();
+		},
+
+		toggleService: function () {
+			console.log("toggleService");
+			this.model.toggleService();
 		}
 	});
 

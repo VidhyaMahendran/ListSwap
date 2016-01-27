@@ -3,8 +3,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'collections/todos',
-	'views/todos',
+	'collections/services',
+	'views/services',
 	'text!templates/stats.html',
 	'common'
 ], function ($, _, Backbone, Todos, TodoView, statsTemplate, Common) {
@@ -22,9 +22,9 @@ define([
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events: {
-			'keypress #new-todo':		'createOnEnter',
+			'keypress #selectservice':		'createOnEnter',
 			'click #clear-completed':	'clearCompleted',
-			'click #toggle-all':		'toggleAllComplete'
+			'click #toggle-all':		'selectAllServices'
 		},
 
 		// At initialization we bind to the relevant events on the `Todos`
@@ -51,6 +51,8 @@ define([
 		render: function () {
 			var completed = Todos.completed().length;
 			var remaining = Todos.remaining().length;
+			var checkedServices = Todos.checkedServices().length;
+			var totalPrice = Todos.getTotalPrice();
 
 			if (Todos.length) {
 				this.$main.show();
@@ -58,7 +60,9 @@ define([
 
 				this.$footer.html(this.template({
 					completed: completed,
-					remaining: remaining
+					remaining: remaining,
+					checkedServices: checkedServices,
+					totalPrice: totalPrice
 				}));
 
 				this.$('#filters li a')
@@ -97,9 +101,11 @@ define([
 		// Generate the attributes for a new Todo item.
 		newAttributes: function () {
 			return {
-				title: this.$input.val().trim(),
+				title: this.$('#new-todo').val().trim(),
 				order: Todos.nextOrder(),
-				completed: false
+				completed: false,
+		        servicename: this.$('#service').val().trim(),
+		        price: this.$('#charge').val().trim()
 			};
 		},
 
@@ -120,7 +126,7 @@ define([
 			return false;
 		},
 
-		toggleAllComplete: function () {
+		selectAllServices: function () {
 			var completed = this.allCheckbox.checked;
 
 			Todos.each(function (todo) {

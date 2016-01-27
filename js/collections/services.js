@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import { Collection } from 'backbone';
 import Store from 'backbone.localstorage';
-import Todo from 'models/todo';
+import Todo from 'models/service';
 
 class TodosCollection extends Collection {
   constructor(models, options) {
@@ -34,8 +34,17 @@ class TodosCollection extends Collection {
   }
 
   // Return an array only with the checked services
-  getChecked() {
-    return this.where({selected:true});
+  checkedServices() {
+    return this.where({completed: true});
+  }
+
+  // Return an array only with the checked services
+  getTotalPrice() {
+    var totalPrice = 0;
+    _.each(this.checkedServices(), function(item){
+      totalPrice += parseInt(item.get('price'));
+    });
+    return totalPrice;
   }
 }
 
